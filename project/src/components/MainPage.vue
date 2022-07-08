@@ -1,29 +1,38 @@
 <template>
   <div class="container">
 		<div class="container_card">
-			<ProductCard />
-			<ProductCard />
-			<ProductCard />
-			<ProductCard />
-			<ProductCard />
-			<ProductCard />
-			<ProductCard />
-			<ProductCard />
-			<ProductCard />
-			<ProductCard />
-
+			<ProductCard v-for="element, index in soundList" :key="index" :info="element" />
 		</div>
 		
   </div>
 </template>
 
 <script>
+/* eslint-disable */
 import ProductCard from "./ProductCard";
+import axios from "axios";
 export default {
   name: 'MainPage',
   components: {
 	ProductCard,
-  }
+  },
+	data() {
+		return{
+			url: "https://flynn.boolean.careers/exercises/api/array/music",
+			soundList: [],		
+			}
+	},
+	created(){
+		this.getSound();
+	},
+	 methods:{
+		getSound(){
+			axios.get(this.url).then((result)=>{
+				this.soundList = result.data.response;
+			}
+			);
+		}
+	 }
 }
 </script>
 
@@ -32,9 +41,7 @@ export default {
 	@import  '../style/variables.scss';
 
 	.container{
-		background-color:$brand_color_b;
 		width: 100%;
-		height: 100vh;
 		padding: 0 25%;
 		display: flex;
 		align-items: center;
@@ -42,6 +49,7 @@ export default {
 		
 	.container_card{
 		display: flex;
-		flex-wrap: wrap;			
+		flex-wrap: wrap;	
+		margin-top: 100px;		
 	}
 </style>

@@ -2,11 +2,11 @@
 
   <div class="container_my set-color">
 		<div class="img-container">
-			<img src="https://images.everyeye.it/img-notizie/the-boys-cosa-succede-homelander-incontra-avengers-scopriamolo-insieme-v3-474144-900x900.jpg" alt="prova">
+			<img :src="info.poster" :alt="info.name">
 		</div>
 		<div class="text">
-			<h2>Title</h2>
-			<p>testo lalalallalalalallllllllllllll<br>lllllllllllll</p>
+			<h2>{{ info.title }}</h2>
+			<p>{{ info.author }} {{ info.genere }} {{ info.year }}</p>
 		</div>
   </div>
 </template>
@@ -14,9 +14,7 @@
 <script>
  export default{
 	name: "ProductCard",
-	// props: {
-	// 	productDeatils: Object
-	// }
+	props: ['info']
  }
 
 </script>
@@ -40,18 +38,19 @@
 		margin-left:20px;
 		
 		.img-container{
-			width: 70%;	
-							
+			width: 100%;	
+			padding: 20px;						
 		}
 		.text{
 			text-align: center;
 			margin-top: 20px;
+			
 			h2{
-				font-size:  50px;
-				margin-bottom: 40px;
+				font-size:  30px;
+				margin-bottom: 10px;
 			}
 			p{
-				font-size: 25px;
+				font-size: 20px;
 				color: $brand_color_c;
 				padding: 20px;
 				
