@@ -20,7 +20,7 @@ export default {
 		width: 100px;
 	}
 	.container_my{
-		background-color: $brand_color_a;
+		background-color:$brand_color_a;
 		width: 100%;
 		color: white;
 		font-size: 80px;
