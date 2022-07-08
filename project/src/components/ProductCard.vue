@@ -29,7 +29,6 @@
 	}
 	.container_my{	
 		width: calc(100% / 5 - 20px);
-		padding-top: 20px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -39,7 +38,7 @@
 		
 		.img-container{
 			width: 100%;	
-			padding: 20px;						
+			padding: 10px 20px;						
 		}
 		.text{
 			text-align: center;
