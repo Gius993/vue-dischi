@@ -6,7 +6,7 @@
 		</div>
 		<div class="text">
 			<h2>Title</h2>
-			<p>testo lalalal</p>
+			<p>testo lalalallalalalallllllllllllll<br>lllllllllllll</p>
 		</div>
   </div>
 </template>
@@ -52,6 +52,9 @@
 			}
 			p{
 				font-size: 25px;
+				color: $brand_color_c;
+				padding: 20px;
+				
 			}
 		}
 		
