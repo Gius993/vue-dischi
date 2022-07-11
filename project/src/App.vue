@@ -10,12 +10,17 @@
 
   import PageHeader from './components/PageHeader.vue'
   import MainPage from './components/MainPage.vue'
-export default {
-  name: 'App',
-  components: {
+  export default {
+    name: 'App',
+     components: {
     
-    PageHeader,
-    MainPage
+       PageHeader,
+       MainPage
+  },
+  methods:{
+    optionSelect(){
+      alert('yoooo')
+    }
   }
 }
 </script>

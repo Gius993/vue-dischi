@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+		<div>
+			<SelectCard />
+		</div>
 		<div class="container_card">
 			<ProductCard v-for="element, index in soundList" :key="index" :info="element" />
 		</div>
@@ -11,10 +14,13 @@
 /* eslint-disable */
 import ProductCard from "./ProductCard";
 import axios from "axios";
+import SelectCard from "./SelectCard";
+
 export default {
   name: 'MainPage',
   components: {
 	ProductCard,
+	SelectCard,
   },
 	data() {
 		return{
@@ -52,4 +58,5 @@ export default {
 		flex-wrap: wrap;	
 		margin-top: 100px;		
 	}
+
 </style>
