@@ -1,23 +1,10 @@
 <template>
   <div>
      <div class="selection-gropu">
-			<select name="select" id="group">
-				<option value="Rock">
-					Rock
-				</option>
-				<option value="EMetal">
-					Heavy metal
-				</option>
-				<option value="Metal">
-					Metal
-				</option>
-				<option value="Jazz">
-					Jazz
-				</option>
-				<option value="Pop">
-					Pop
-				</option>
-			</select>
+		<select name="genre" id="" @change="$emit('search', $event.target.value)">
+            <option value="all">All</option>
+            <option v-for="item, index in list" :key="index">{{item}}</option>
+        </select>
 		</div>
 
   </div>
@@ -25,9 +12,13 @@
 
 <script>
 
+
 export default {
-	name: "SelectCard"
-}
+  name: "SelectCard",
+  props: {
+      list:Array
+  }
+};
   
 </script>
 
