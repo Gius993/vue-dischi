@@ -1,7 +1,7 @@
 <template>
   <div class="container">
 		<div>
-			<SelectCard   />
+			<SelectCard @searchGender="setActiveGender"   />
 		</div>
 		<div class="container_card">
 			<ProductCard v-for="element, index in filterListDisk" :key="index" :info="element" />
@@ -30,6 +30,7 @@ export default {
 			url: "https://flynn.boolean.careers/exercises/api/array/music",
 			soundList: [],	
 			listSelect:[],	
+			activeGenre: 'All'
 			}
 	},
 	created(){
@@ -38,31 +39,32 @@ export default {
 	},
 	computed:{
 		filterListDisk(){
-			if(this.details === "all"){
+			if(this.activeGenre === "All"){
 				return this.soundList
 			}
-			return this.soundList.filter(() =>{
-				return item.genere.toLowerCase().includes(this.detalist.toLowerCase())
-			},
-			)
+			return this.soundList.filter((item) => item.genre.toLowerCase() === this.activeGenre.toLowerCase())
 		},
 	},
 	 methods:{
 		getSound(){
 			axios.get(this.url).then((result)=>{
 				this.soundList = result.data.response;
-				this.allGen();
+				// this.allGen();
 			}
 			);
+		},
+		setActiveGender(genre) {
+			console.log(genre);
+			this.activeGenre = genre;
 		}
 	 },
-	 allGen(){
-		for(let i = 0; i < this.soundList.length; i++){
-			if(!this.listSelect.push(this.soundList[i].genere)){
-				this.listSelect.push(this.soundList[i].genere)
-			}
-		}
-	 }
+	//  allGen(){
+	// 	for(let i = 0; i < this.soundList.length; i++){
+	// 		if(!this.listSelect.push(this.soundList[i].genere)){
+	// 			this.listSelect.push(this.soundList[i].genere)
+	// 		}
+	// 	}
+	//  }
 }
 </script>
 

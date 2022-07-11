@@ -17,11 +17,7 @@
        PageHeader,
        MainPage
   },
-  methods:{
-    optionSelect(){
-      alert('yoooo')
-    }
-  }
+
 }
 </script>
 
